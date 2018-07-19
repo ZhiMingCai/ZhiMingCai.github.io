@@ -74,31 +74,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#冒泡排序#</p>
-<p>###原理：每次循环左右相邻的两个元素进行比较，如果比较的两个数中右边的那个数比左边的小则交换这两个数的位置，依此类推，<br>最后最右边那个数是排列中的最大数，总共循环比较个数-1次，第二趟比较比较个数-2次</p>
-<p>###冒泡排序总的平均时间复杂度为：O(n2) ###</p>
-<p>package algorithm;</p>
-<p>import java.util.Arrays;</p>
-<p>public class Bubble {<br>    public static void main(String[] args) {<br>        int[] arr = {45,2,65,32,15,48,52,5};<br>        System.out.println(“排序前的排序:”+Arrays.toString(arr));<br>        arr = fun(arr);<br>        System.out.println(“排序后的排序:”+Arrays.toString(arr));<br>    }</p>
-<pre><code>private static  int[] fun(int[] arr) {
-    for (int i = 1; i &lt; arr.length; i++) {
-        for (int j = 0; j &lt; arr.length-i; j++) {
-            if (arr[j+1]&lt;arr[j]) {
-                int temp = 0;
-                temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-            }
+        <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><h3 id="原理：每次循环左右相邻的两个元素进行比较，如果比较的两个数中右边的那个数比左边的小则交换这两个数的位置，依此类推，"><a href="#原理：每次循环左右相邻的两个元素进行比较，如果比较的两个数中右边的那个数比左边的小则交换这两个数的位置，依此类推，" class="headerlink" title="原理：每次循环左右相邻的两个元素进行比较，如果比较的两个数中右边的那个数比左边的小则交换这两个数的位置，依此类推，"></a>原理：每次循环左右相邻的两个元素进行比较，如果比较的两个数中右边的那个数比左边的小则交换这两个数的位置，依此类推，</h3><p>最后最右边那个数是排列中的最大数，总共循环比较个数-1次，第二趟比较比较个数-2次</p>
+<h3 id="冒泡排序总的平均时间复杂度为：O-n2"><a href="#冒泡排序总的平均时间复杂度为：O-n2" class="headerlink" title="冒泡排序总的平均时间复杂度为：O(n2)"></a>冒泡排序总的平均时间复杂度为：O(n2)</h3><pre><code>package algorithm;
+import java.util.Arrays;
+public class Bubble {
+  public static void main(String[] args) {
+      int[] arr = {45,2,65,32,15,48,52,5};
+      System.out.println(&quot;排序前的排序:&quot;+Arrays.toString(arr));
+      arr = fun(arr);
+      System.out.println(&quot;排序后的排序:&quot;+Arrays.toString(arr));
+  }
+  private static  int[] fun(int[] arr) {
+      for (int i = 1; i &lt; arr.length; i++) {
+          for (int j = 0; j &lt; arr.length-i; j++) {
+              if (arr[j+1]&lt;arr[j]) {
+                  int temp = 0;
+                  temp = arr[j];
+                  arr[j] = arr[j+1];
+                  arr[j+1] = temp;
+              }
+          }
         }
+        return arr;
     }
-    return arr;
 }
-</code></pre><p>}</p>
-
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.czhiming.com/2018/07/19/BubbleSort/" data-id="cjjsenzyi00007guivguu3198" class="article-share-link">Share</a>
+      <a data-url="https://www.czhiming.com/2018/07/19/BubbleSort/" data-id="cjjsetyqc0001kkui3mndb11s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -143,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.czhiming.com/2018/07/19/hello-world/" data-id="cjjsenzyq00017guilaswe6zv" class="article-share-link">Share</a>
+      <a data-url="https://www.czhiming.com/2018/07/19/hello-world/" data-id="cjjsetyq20000kkuimqw62ytk" class="article-share-link">Share</a>
       
       
     </footer>
