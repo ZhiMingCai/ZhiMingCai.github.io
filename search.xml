@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[BubbleSort]]></title>
+    <url>%2F2018%2F07%2F19%2FBubbleSort%2F</url>
+    <content type="text"><![CDATA[冒泡排序原理：每次循环左右相邻的两个元素进行比较，如果比较的两个数中右边的那个数比左边的小则交换这两个数的位置，依此类推，最后最右边那个数是排列中的最大数，总共循环比较个数-1次，第二趟比较比较个数-2次 冒泡排序总的平均时间复杂度为：O(n2)package algorithm; import java.util.Arrays; public class Bubble { public static void main(String[] args) { int[] arr = {45,2,65,32,15,48,52,5}; System.out.println(&quot;排序前的排序:&quot;+Arrays.toString(arr)); arr = fun(arr); System.out.println(&quot;排序后的排序:&quot;+Arrays.toString(arr)); } private static int[] fun(int[] arr) { for (int i = 1; i &lt; arr.length; i++) { for (int j = 0; j &lt; arr.length-i; j++) { if (arr[j+1]&lt;arr[j]) { int temp = 0; temp = arr[j]; arr[j] = arr[j+1]; arr[j+1] = temp; } } } return arr; } } 简单的冒泡排序就写在这里了！]]></content>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F07%2F19%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
