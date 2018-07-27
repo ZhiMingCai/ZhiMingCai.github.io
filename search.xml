@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[hexo+Github]]></title>
     <url>%2F2018%2F07%2F27%2Fhexo_Github%2F</url>
-    <content type="text"><![CDATA[Hexo+Github搭建个人博客在本地安装Node.js环境，打开cmd命令行，如果node.js安装成功将会出现界面如下关于Node.js可参考 lian 在本地安装和配置Git环境，如果安装成功鼠标右键出现如下界面关于Git可参考 git ##注册一个Github账号新建一个仓库 仓库名必须规范 账号名.github.io 并且需要勾选Initialize this repository with a README 先在某一盘创建一个文件hexo 进入文件及右键进入这个界面 设置全局配置user.name和user.email 生成SSH密钥设置到Github(需要先设置user.name和user.email) 设置ssh key到Github 默认生成的ssh在C盘的用户目录下 把id_rsa.pub里面的代码复制到Github的SSHandGPGkeys中 点击确定之后出现下面的界面 最后测试SSH设置是否成功 安装Hexo插件 cd进去Hexo的文件夹 启动服务器 在浏览器输入http://localhost:4000/出现下面界面 上传hexo博客的静态文件到Github先安装部署到GitHub的插件依赖 然后打开Hexo文件夹下的hexo配置文件.config_yml 部署hexo到GitHub 然后在浏览器输入https://用户名.github.io 会出现下面界面代表搭建成功 在hexo写博客 再到git执行hexo g和hexo d则就可以部署上去个人的网站了]]></content>
+    <content type="text"><![CDATA[Hexo+Github搭建个人博客在本地安装Node.js环境，打开cmd命令行，如果node.js安装成功将会出现界面如下关于Node.js可参考lian 在本地安装和配置Git环境，如果安装成功鼠标右键出现如下界面关于Git可参考git 注册一个Github账号新建一个仓库 仓库名必须规范 账号名.github.io 并且需要勾选Initialize this repository with a README 先在某一盘创建一个文件hexo 进入文件及右键进入这个界面 设置全局配置user.name和user.email 生成SSH密钥设置到Github(需要先设置user.name和user.email) 设置ssh key到Github 默认生成的ssh在C盘的用户目录下 把id_rsa.pub里面的代码复制到Github的SSHandGPGkeys中 点击确定之后出现下面的界面 最后测试SSH设置是否成功 安装Hexo插件 cd进去Hexo的文件夹 启动服务器 在浏览器输入http://localhost:4000/出现下面界面 上传hexo博客的静态文件到Github先安装部署到GitHub的插件依赖 然后打开Hexo文件夹下的hexo配置文件.config_yml 部署hexo到GitHub 然后在浏览器输入https://用户名.github.io 会出现下面界面代表搭建成功 在hexo写博客 再到git执行hexo g和hexo d则就可以部署上去个人的网站了]]></content>
       <tags>
         <tag>工具</tag>
       </tags>
