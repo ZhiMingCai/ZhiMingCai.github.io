@@ -31,7 +31,7 @@
     <!--Title-->
 
 
-<title></title>
+<title>折半查找 | </title>
 
 
     <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
@@ -132,204 +132,15 @@
         <div class="container">
             <div class="row">
                 <main class="col-md-8 main-content ">
-                    
-    <div class="carousel">
-        <img src="/img/head-img.jpg">
+                    <article class="post">
+    <h1 class="post-head">折半查找</h1>
+    <div class="post-body">
+        <h3 id="折半查找"><a href="#折半查找" class="headerlink" title="折半查找"></a>折半查找</h3><p>也称之为二分查找算法，是比较常用的一种查找算法，但是这种算法有个要求就是要待查找的序列中必须是已经排好顺序的。<br><em>接下来看代码：</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 思路:讲序列排好序，然后将查找的数据与序列中的中间数进行比较大小，若相等则返回这个这个数据在序列中的位置，</span><br><span class="line"> * 若查找的数据比序列中的中间数大，则将height-1，然后再求出剩下那半截序列的中间数再进行对比；若查找的数据比</span><br><span class="line"> * 序列中的中间数小，则将low+1，然后再求出剩下那半截序列的中间数再进行对比;以此类推。</span><br><span class="line"> */</span><br><span class="line">public class BinarySearchDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //测试数据</span><br><span class="line">        int[] array = new int[]&#123;9, 1, 8, 2, 7, 3, 4, 6, 5&#125;;</span><br><span class="line">        //折半查找的函数</span><br><span class="line">        binarySearch(array, 1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //我这里是使用选择排序将测试数据排成有序</span><br><span class="line">    public static void selectSort(int[] arr) &#123;</span><br><span class="line">        for (int i = 0; i &lt; arr.length - 1; ++i) &#123;</span><br><span class="line">            int minValue = i;</span><br><span class="line">            for (int j = i + 1; j &lt; arr.length; j++) &#123;</span><br><span class="line">                if (arr[minValue] &gt; arr[j]) &#123;</span><br><span class="line">                    minValue = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if (minValue != i) &#123;</span><br><span class="line">                int temp = arr[i];</span><br><span class="line">                arr[i] = arr[minValue];</span><br><span class="line">                arr[minValue] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //折半查找</span><br><span class="line">    public static int binarySearch(int[] arr, int num) &#123;</span><br><span class="line">        //选择排序</span><br><span class="line">        selectSort(arr);</span><br><span class="line">        int low = 0;</span><br><span class="line">        int height = arr.length - 1;</span><br><span class="line">        while (low &lt;= height) &#123;</span><br><span class="line">            int mid = (low + height) / 2;</span><br><span class="line">            if (num &lt; arr[mid]) &#123;</span><br><span class="line">                height = mid - 1;</span><br><span class="line">            &#125; else if (num &gt; arr[mid]) &#123;</span><br><span class="line">                low = mid + 1;</span><br><span class="line">            &#125; else if (num == arr[mid]) &#123;</span><br><span class="line">                System.out.println(&quot;数据查找成功在第&quot; + (mid + 1) + &quot;个位置&quot;);</span><br><span class="line">                return mid + 1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;数据查找失败&quot;);</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>运行结果如下：</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line">查找元素成功在第1个位置</span><br></pre></td></tr></table></figure></p>
+<p>好了，这就是简单的折半查找，有什么错误的地方，希望大家留言我将会及时修改。</p>
+
     </div>
-
-
-
-
-
-<article class="post">
-    
-        <div class="post-media">
-            <a href="/2018/07/27/hexo_Github/">
-                <img class="img-ajax" src="/img/loading.gif"  data-src="https://111.230.242.243/img/user.jpg"   alt="hexo+Github">
-            </a>
-        </div>
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2018/07/27/hexo_Github/">hexo+Github</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2018年07月27日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                Hexo+Github搭建个人博客在本地安装Node.js环境，打开cmd命令行，如果node.js安装成功将会出现界面如下关于Node.js可参考https://jingyan.baidu.com/article/48b37f8dd...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/ ">
-             
-        </a>
-    </span>
-    
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-                    <a href="/tags/工具" title='工具'>
-                        工具
-                    </a>
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2018/07/27/hexo_Github/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
 </article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2018/07/19/BubbleSort/">BubbleSort</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2018年07月19日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                冒泡排序原理：每次循环左右相邻的两个元素进行比较，如果比较的两个数中右边的那个数比左边的小则交换这两个数的位置，依此类推，最后最右边那个数是排列中的最大数，总共循环比较个数-1次，第二趟比较比较个数-2次 
-
-
-冒泡排序总的平均时间复...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/ ">
-             
-        </a>
-    </span>
-    
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-                    <a href="/tags/数据结构" title='数据结构'>
-                        数据结构
-                    </a>
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2018/07/19/BubbleSort/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2018/07/19/hello-world/">Hello World</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2018年07月19日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using ...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/ ">
-             
-        </a>
-    </span>
-    
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2018/07/19/hello-world/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-
-
-
-
                 </main>
                 
                     
